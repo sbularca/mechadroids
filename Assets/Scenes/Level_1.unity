@@ -4278,11 +4278,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3538d90459ea1874eb51016e012ee011, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3538d90459ea1874eb51016e012ee011, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3538d90459ea1874eb51016e012ee011, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 3538d90459ea1874eb51016e012ee011, type: 3}
       propertyPath: m_ApplyRootMotion
@@ -5219,6 +5223,11 @@ MonoBehaviour:
   verticalAngle: 20.1
   controlVerticalRotation: 0
   verticalRotationSpeed: 50
+--- !u!4 &1475179701 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400008, guid: 3538d90459ea1874eb51016e012ee011, type: 3}
+  m_PrefabInstance: {fileID: 1196068109}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1501078374 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100008, guid: d52e7e9c896cdf1448e4cb767ab149e7, type: 3}
@@ -5434,16 +5443,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tankBody: {fileID: 1572037625}
   turretBase: {fileID: 931179269}
-  barrel: {fileID: 936370871}
+  barrel: {fileID: 1363073588}
+  barrelEnd: {fileID: 1475179701}
   moveSpeed: 7
   rotationSpeed: 100
-  turretRotationSpeed: 2
-  barrelRotationSpeed: 2
-  minBarrelAngle: -10
+  turretRotationSpeed: 5
+  barrelRotationSpeed: 5
+  minBarrelAngle: -30
   maxBarrelAngle: 20
+  minTurretAngle: -360
+  maxTurretAngle: 360
   aimLayerMask:
     serializedVersion: 2
     m_Bits: 1
+  hitIndicatorPrefab: {fileID: 8119519231009682733, guid: 4f452f12e6d41cc4795d442ec01ef051, type: 3}
   mainCamera: {fileID: 1464182878}
 --- !u!136 &1572037630
 CapsuleCollider:
@@ -5464,10 +5477,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.63
-  m_Height: 7.96
+  m_Radius: 1.59
+  m_Height: 5.71
   m_Direction: 2
-  m_Center: {x: 0, y: 1.41, z: 0}
+  m_Center: {x: 0, y: 1.19, z: 0}
 --- !u!1001 &1584491413
 PrefabInstance:
   m_ObjectHideFlags: 0
