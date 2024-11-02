@@ -21,7 +21,7 @@ MonoBehaviour:
   m_OverrideGlobalSceneList: 1
   m_Scenes:
   - m_enabled: 1
-    m_path: Assets/Scenes/Level_1.unity
+    m_path: Assets/Scenes/Entites.unity
   - m_enabled: 0
     m_path: Assets/External/Mech_Constructor_Spiders/Demo_Scene_Spiders.unity
   m_ScriptingDefines: []
