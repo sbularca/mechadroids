@@ -12,12 +12,11 @@ namespace Mechadroids {
 
         public override void Enter() {
             idleTimer = 0f;
-            enemyReference.navMeshAgent.isStopped = true;
             // Optionally set idle animation
         }
 
         public override void HandleInput() {
-            // Decision making can be added here
+            // No input handling needed in idle state
         }
 
         public override void LogicUpdate() {
@@ -28,7 +27,7 @@ namespace Mechadroids {
         }
 
         public override void PhysicsUpdate() {
-            // No physics updates needed for idle
+            // No physics updates needed in idle state
         }
 
         public override void Exit() {

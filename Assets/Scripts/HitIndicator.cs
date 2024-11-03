@@ -1,7 +1,5 @@
 using UnityEngine;
 
 namespace Mechadroids {
-    public class HitIndicator : MonoBehaviour {
-
-    }
+    public class HitIndicator : MonoBehaviour { }
 }

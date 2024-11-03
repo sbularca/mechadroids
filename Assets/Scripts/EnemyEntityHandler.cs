@@ -2,21 +2,18 @@ using UnityEngine;
 
 namespace Mechadroids {
     public class EnemyEntityHandler : IEntityHandler {
-        private readonly GamePrefabs gamePrefabs;
-        private readonly Transform enemySpawnPosition;
-
+        private readonly EnemySettings enemySettings;
         private EnemyReference enemyReference;
 
         public EntityState EntityState { get; set; }
 
-        public EnemyEntityHandler(GamePrefabs gamePrefabs, Transform enemySpawnPosition) {
-            this.gamePrefabs = gamePrefabs;
-            this.enemySpawnPosition = enemySpawnPosition;
+        public EnemyEntityHandler(EnemySettings enemySettings) {
+            this.enemySettings = enemySettings;
         }
 
         public void Initialize() {
-            enemyReference = Object.Instantiate(gamePrefabs.enemyReferencePrefab);
-            enemyReference.transform.position = enemySpawnPosition.position;
+            enemyReference = Object.Instantiate(enemySettings.enemy.enemyReferencePrefab); //should handle this with pooling
+            enemyReference.transform.position = enemySettings.routeSettings.routePoints[0];
 
             // Initialize the default state (Idle State)
             EntityState = new EnemyIdleState(this, enemyReference);
@@ -37,10 +34,11 @@ namespace Mechadroids {
         }
 
         public void Dispose() {
-            if(enemyReference != null) {
+            if (enemyReference != null) {
                 Object.Destroy(enemyReference.gameObject);
                 enemyReference = null;
             }
         }
     }
+
 }

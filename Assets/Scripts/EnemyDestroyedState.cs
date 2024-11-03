@@ -9,13 +9,12 @@ namespace Mechadroids {
         }
 
         public override void Enter() {
-            enemyReference.navMeshAgent.isStopped = true;
             // Play destruction effects or animations
             Object.Destroy(enemyReference.gameObject);
         }
 
         public override void HandleInput() {
-            // No input needed when destroyed
+            // No input handling needed when destroyed
         }
 
         public override void LogicUpdate() {
@@ -30,5 +29,4 @@ namespace Mechadroids {
             // No exit actions needed when destroyed
         }
     }
-
 }

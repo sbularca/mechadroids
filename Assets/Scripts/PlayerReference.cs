@@ -1,7 +1,4 @@
-using Mechadroids;
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerReference : MonoBehaviour {
     [Header("Tank Components")]

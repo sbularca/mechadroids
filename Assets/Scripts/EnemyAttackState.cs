@@ -4,7 +4,6 @@ namespace Mechadroids {
     public class EnemyAttackState : EntityState {
         private readonly EnemyReference enemyReference;
         private readonly Transform playerTransform;
-        private float attackRange = 2f;
         private float attackCooldown = 1f;
         private float lastAttackTime;
 
@@ -22,33 +21,54 @@ namespace Mechadroids {
         }
 
         public override void LogicUpdate() {
-            float distanceToPlayer = Vector3.Distance(enemyReference.transform.position, playerTransform.position);
-
-            if(distanceToPlayer > enemyReference.detectionRadius) {
+            if(playerTransform == null) {
                 TransitionToPatrolState();
                 return;
             }
 
-            enemyReference.navMeshAgent.destination = playerTransform.position;
+            float distanceToPlayer = Vector3.Distance(enemyReference.transform.position, playerTransform.position);
 
-            if(distanceToPlayer <= attackRange) {
-                enemyReference.navMeshAgent.isStopped = true;
+            if(distanceToPlayer > enemyReference.enemySettings.enemy.detectionRadius) {
+                TransitionToPatrolState();
+                return;
+            }
+
+            MoveTowardsPlayer();
+
+            if(distanceToPlayer <= enemyReference.enemySettings.enemy.attackRange) {
                 if(Time.time >= lastAttackTime + attackCooldown) {
                     AttackPlayer();
                     lastAttackTime = Time.time;
                 }
             }
-            else {
-                enemyReference.navMeshAgent.isStopped = false;
-            }
         }
 
         public override void PhysicsUpdate() {
-            // No physics updates needed for attack
+            // Implement if physics are involved
         }
 
         public override void Exit() {
             // Cleanup if necessary
+        }
+
+        private void MoveTowardsPlayer() {
+            Vector3 direction = (playerTransform.position - enemyReference.transform.position).normalized;
+
+            // Move towards the player
+            enemyReference.transform.position += direction * enemyReference.enemySettings.enemy.attackSpeed * Time.deltaTime;
+
+            // Rotate towards the player
+            RotateTowards(direction);
+        }
+
+        private void RotateTowards(Vector3 direction) {
+            if(direction.magnitude == 0) return;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            enemyReference.transform.rotation = Quaternion.Slerp(
+                enemyReference.transform.rotation,
+                targetRotation,
+                enemyReference.enemySettings.enemy.attackRotationSpeed * Time.deltaTime
+            );
         }
 
         private void AttackPlayer() {
@@ -62,5 +82,4 @@ namespace Mechadroids {
             entityHandler.EntityState.Enter();
         }
     }
-
 }

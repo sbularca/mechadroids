@@ -1,6 +1,6 @@
-namespace Mechadroids {
-    using UnityEngine;
+using UnityEngine;
 
+namespace Mechadroids {
     public class PlayerActiveState : EntityState {
         private readonly InputHandler inputHandler;
         private readonly PlayerReference playerReference;

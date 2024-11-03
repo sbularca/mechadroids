@@ -1,11 +1,8 @@
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 namespace Mechadroids {
-    using UnityEngine;
-
     public class PlayerEntityHandler : IEntityHandler {
-        private readonly GamePrefabs gamePrefabs;
+        private readonly PlayerPrefabs playerPrefabs;
         private readonly InputHandler inputHandler;
         private readonly Transform playerStartPosition;
 
@@ -14,8 +11,8 @@ namespace Mechadroids {
 
         public EntityState EntityState { get; set; }
 
-        public PlayerEntityHandler(GamePrefabs gamePrefabs, InputHandler inputHandler, Transform playerStartPosition) {
-            this.gamePrefabs = gamePrefabs;
+        public PlayerEntityHandler(PlayerPrefabs playerPrefabs, InputHandler inputHandler, Transform playerStartPosition) {
+            this.playerPrefabs = playerPrefabs;
             this.inputHandler = inputHandler;
             this.playerStartPosition = playerStartPosition;
         }
@@ -23,10 +20,10 @@ namespace Mechadroids {
         public void Initialize() {
             inputHandler.SetCursorState(false, CursorLockMode.Locked);
 
-            playerReference = Object.Instantiate(gamePrefabs.playerReferencePrefab);
+            playerReference = Object.Instantiate(playerPrefabs.playerReferencePrefab);
             playerReference.transform.position = playerStartPosition.position;
 
-            hitIndicatorInstance = Object.Instantiate(gamePrefabs.hitIndicatorPrefab);
+            hitIndicatorInstance = Object.Instantiate(playerPrefabs.hitIndicatorPrefab);
             hitIndicatorInstance.gameObject.SetActive(false);
 
             // Initialize the default state

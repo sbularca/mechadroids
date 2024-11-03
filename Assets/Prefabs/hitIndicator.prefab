@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 5596863330251933793}
   - component: {fileID: -4444418431377477942}
   m_Layer: 0
-  m_Name: aimingPoint
+  m_Name: hitIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,19 +5,24 @@ namespace Mechadroids {
     public class Entrypoint : MonoBehaviour {
         public Transform playerStartPosition;
 
-        private GamePrefabs gamePrefabs;
+        private PlayerPrefabs playerPrefabs;
         private InputHandler inputHandler;
         private PlayerEntityHandler playerEntityHandler;
+        private AISettings aISettings;
+        private AIEntitiesHandler aiEntitiesHandler;
         public void Start() {
             LoadSceneAdditiveIfNotLoaded("Level");
 
-            gamePrefabs = Resources.Load<GamePrefabs>("GamePrefabs");
+            playerPrefabs = Resources.Load<PlayerPrefabs>("GamePrefabs");
 
             inputHandler = new InputHandler();
             inputHandler.Initialize();
 
-            playerEntityHandler = new PlayerEntityHandler(gamePrefabs, inputHandler, playerStartPosition);
+            playerEntityHandler = new PlayerEntityHandler(playerPrefabs, inputHandler, playerStartPosition);
             playerEntityHandler.Initialize();
+
+            aiEntitiesHandler = new AIEntitiesHandler(aISettings);
+            aiEntitiesHandler.Initialize();
         }
 
         void LoadSceneAdditiveIfNotLoaded(string sceneName) {
@@ -35,11 +39,18 @@ namespace Mechadroids {
 
         public void Update() {
             playerEntityHandler.Tick();
+            aiEntitiesHandler.Tick();
+        }
+
+        public void FixedUpdate() {
+            playerEntityHandler.PhysicsTick();
+            aiEntitiesHandler.PhysicsTick();
         }
 
         public void OnDestroy() {
             inputHandler.Dispose();
             playerEntityHandler.Dispose();
+            aiEntitiesHandler.Dispose();
         }
     }
 }
