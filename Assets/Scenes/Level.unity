@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 508981199}
   - component: {fileID: 508981198}
   - component: {fileID: 508981197}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ TerrainCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_TerrainData: {fileID: 15600000, guid: 1a83f95dbca2cb7438f18f433e330117, type: 2}
-  m_EnableTreeColliders: 1
+  m_EnableTreeColliders: 0
 --- !u!218 &508981198
 Terrain:
   m_ObjectHideFlags: 0

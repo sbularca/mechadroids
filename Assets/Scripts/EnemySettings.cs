@@ -18,14 +18,15 @@ namespace Mechadroids {
 
         [Header("Patrol Settings")]
         public float patrolSpeed = 2f;
-        public float patrolRotationSpeed = 5f;
+        public float patrolRotationSpeed = 1f;
 
         [Header("Detection Settings")]
         public float detectionRadius = 10f;
 
         [Header("Attack Settings")]
-        public float attackRange = 2f;
-        public float attackSpeed = 3f;
-        public float attackRotationSpeed = 7f;
+        public float maxDistanceFromPlayer = 5f;
+        public float attackRange = 30f;
+        public float attackSpeed = 7f;
+        public float attackRotationSpeed = 2f;
     }
 }

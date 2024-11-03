@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Mechadroids {
     public class PlayerActiveState : EntityState {
@@ -50,6 +51,8 @@ namespace Mechadroids {
             else {
                 currentSpeed = Mathf.MoveTowards(currentSpeed, 0, playerReference.deceleration * Time.deltaTime);
             }
+
+            currentSpeed = EntityHelper.HandleSlope(playerReference.tankBody, playerReference.maxSlopeAngle, currentSpeed);
 
             currentSpeed = Mathf.Clamp(currentSpeed, -playerReference.moveSpeed, playerReference.moveSpeed);
             playerReference.tankBody.Translate(Vector3.forward * (currentSpeed * Time.deltaTime));

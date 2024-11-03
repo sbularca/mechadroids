@@ -45,6 +45,7 @@ namespace Mechadroids {
             if(enemyReference.enemySettings.routeSettings.routePoints.Length == 0) return;
 
             Vector3 targetPoint = enemyReference.enemySettings.routeSettings.routePoints[currentPatrolIndex];
+            targetPoint.y = enemyReference.transform.position.y;
             Vector3 direction = (targetPoint - enemyReference.transform.position).normalized;
 
             // Move towards the target point

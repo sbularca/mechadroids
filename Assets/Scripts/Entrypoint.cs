@@ -1,24 +1,28 @@
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Mechadroids {
     public class Entrypoint : MonoBehaviour {
         public Transform playerStartPosition;
+        public CinemachineCamera followCamera;
 
         private PlayerPrefabs playerPrefabs;
         private InputHandler inputHandler;
         private PlayerEntityHandler playerEntityHandler;
         private AISettings aISettings;
         private AIEntitiesHandler aiEntitiesHandler;
+
         public void Start() {
             LoadSceneAdditiveIfNotLoaded("Level");
 
-            playerPrefabs = Resources.Load<PlayerPrefabs>("GamePrefabs");
+            playerPrefabs = Resources.Load<PlayerPrefabs>("PlayerPrefabs");
+            aISettings = Resources.Load<AISettings>("AISettings");
 
             inputHandler = new InputHandler();
             inputHandler.Initialize();
 
-            playerEntityHandler = new PlayerEntityHandler(playerPrefabs, inputHandler, playerStartPosition);
+            playerEntityHandler = new PlayerEntityHandler(playerPrefabs, inputHandler, playerStartPosition, followCamera);
             playerEntityHandler.Initialize();
 
             aiEntitiesHandler = new AIEntitiesHandler(aISettings);

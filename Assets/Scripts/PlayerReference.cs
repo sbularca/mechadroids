@@ -17,6 +17,7 @@ public class PlayerReference : MonoBehaviour {
     public float rotationSpeed = 10f;
     public float acceleration = 2f;
     public float deceleration = 2f;
+    public float maxSlopeAngle = 45f;
 
     [Header("Turret Parameters")]
     public float turretRotationSpeed = 10f;

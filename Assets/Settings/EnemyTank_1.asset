@@ -15,10 +15,12 @@ MonoBehaviour:
   enemy:
     enemyType: 1
     enemyReferencePrefab: {fileID: 1215594269258311897, guid: 35902d950096e064799095795d4d4e94, type: 3}
-    patrolSpeed: 2
-    patrolRotationSpeed: 5
-    detectionRadius: 10
-    attackRange: 2
-    attackSpeed: 3
+    totalHealth: 100
+    patrolSpeed: 5
+    patrolRotationSpeed: 7
+    detectionRadius: 40
+    maxDistanceFromPlayer: 5
+    attackRange: 20
+    attackSpeed: 7
     attackRotationSpeed: 7
-  routeSettings: {fileID: 0}
+  routeSettings: {fileID: 11400000, guid: eb30f6af6031d6e4dba50827382942d1, type: 2}

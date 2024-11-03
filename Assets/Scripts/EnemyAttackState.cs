@@ -55,7 +55,9 @@ namespace Mechadroids {
             Vector3 direction = (playerTransform.position - enemyReference.transform.position).normalized;
 
             // Move towards the player
-            enemyReference.transform.position += direction * enemyReference.enemySettings.enemy.attackSpeed * Time.deltaTime;
+            if(Vector3.Distance(enemyReference.transform.position, playerTransform.position) > enemyReference.enemySettings.enemy.maxDistanceFromPlayer) {
+                enemyReference.transform.position += direction * enemyReference.enemySettings.enemy.attackSpeed * Time.deltaTime;
+            }
 
             // Rotate towards the player
             RotateTowards(direction);
