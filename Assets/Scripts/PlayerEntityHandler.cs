@@ -30,7 +30,6 @@ namespace Mechadroids {
             hitIndicatorInstance = Object.Instantiate(playerPrefabs.hitIndicatorPrefab);
             hitIndicatorInstance.gameObject.SetActive(false);
 
-            // Initialize the default state
             EntityState = new PlayerActiveState(this, inputHandler, playerReference, hitIndicatorInstance);
             EntityState.Enter();
         }

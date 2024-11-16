@@ -1,19 +1,22 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Mechadroids {
     public class AIEntitiesHandler {
         private readonly AISettings aiSettings;
+        private readonly Transform parentHolder;
 
         public Dictionary<int, EnemyEntityHandler> EnemyEntityHandlers { get; } = new();
 
-        public AIEntitiesHandler(AISettings aiSettings) {
+        public AIEntitiesHandler(AISettings aiSettings, Transform parentHolder) {
             this.aiSettings = aiSettings;
+            this.parentHolder = parentHolder;
         }
 
         public void Initialize() {
             foreach(EnemyGroup enemy in aiSettings.enemiesToSpawn) {
                 for(int i = 0; i < enemy.enemyCount; i++) {
-                    EnemyEntityHandler enemyEntityHandler = new(enemy.enemySettings);
+                    EnemyEntityHandler enemyEntityHandler = new(enemy.enemySettings, parentHolder);
                     enemyEntityHandler.Initialize();
                     EnemyEntityHandlers.TryAdd(i, enemyEntityHandler);
                 }

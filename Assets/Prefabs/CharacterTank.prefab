@@ -101,20 +101,10 @@ MonoBehaviour:
   turretBase: {fileID: 5288390218034827684}
   barrel: {fileID: 184872113390101345}
   barrelEnd: {fileID: 245764235136577419}
-  moveSpeed: 10
-  rotationSpeed: 30
-  acceleration: 2
-  deceleration: 4
-  maxSlopeAngle: 60
-  turretRotationSpeed: 5
-  barrelRotationSpeed: 5
-  minBarrelAngle: -20
-  maxBarrelAngle: 20
-  minTurretAngle: -180
-  maxTurretAngle: 180
   aimLayerMask:
     serializedVersion: 2
     m_Bits: 1
+  characterSettings: {fileID: 11400000, guid: dcd8e92e064645e4babbac92b9374fcf, type: 2}
 --- !u!136 &190039076118802654
 CapsuleCollider:
   m_ObjectHideFlags: 0

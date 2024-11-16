@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Mechadroids {
     public class PlayerActiveState : EntityState {
@@ -46,18 +45,18 @@ namespace Mechadroids {
 
         private void HandleMovement() {
             if(inputHandler.MovementInput.y != 0) {
-                currentSpeed += inputHandler.MovementInput.y * playerReference.acceleration * Time.deltaTime;
+                currentSpeed += inputHandler.MovementInput.y * playerReference.characterSettings.acceleration * Time.deltaTime;
             }
             else {
-                currentSpeed = Mathf.MoveTowards(currentSpeed, 0, playerReference.deceleration * Time.deltaTime);
+                currentSpeed = Mathf.MoveTowards(currentSpeed, 0, playerReference.characterSettings.deceleration * Time.deltaTime);
             }
 
-            currentSpeed = EntityHelper.HandleSlope(playerReference.tankBody, playerReference.maxSlopeAngle, currentSpeed);
+            currentSpeed = EntityHelper.HandleSlope(playerReference.tankBody, playerReference.characterSettings.maxSlopeAngle, currentSpeed);
 
-            currentSpeed = Mathf.Clamp(currentSpeed, -playerReference.moveSpeed, playerReference.moveSpeed);
+            currentSpeed = Mathf.Clamp(currentSpeed, -playerReference.characterSettings.moveSpeed, playerReference.characterSettings.moveSpeed);
             playerReference.tankBody.Translate(Vector3.forward * (currentSpeed * Time.deltaTime));
 
-            float rotationAmount = inputHandler.MovementInput.x * playerReference.rotationSpeed * Time.deltaTime;
+            float rotationAmount = inputHandler.MovementInput.x * playerReference.characterSettings.rotationSpeed * Time.deltaTime;
             playerReference.tankBody.Rotate(Vector3.up, rotationAmount);
         }
 
@@ -65,12 +64,12 @@ namespace Mechadroids {
             Vector2 mouseInput = inputHandler.MouseDelta;
 
             // Update turret horizontal angle
-            turretAngle += mouseInput.x * playerReference.turretRotationSpeed * Time.deltaTime;
-            turretAngle = Mathf.Clamp(turretAngle, playerReference.minTurretAngle, playerReference.maxTurretAngle);
+            turretAngle += mouseInput.x * playerReference.characterSettings.turretRotationSpeed * Time.deltaTime;
+            turretAngle = Mathf.Clamp(turretAngle, playerReference.characterSettings.minTurretAngle, playerReference.characterSettings.maxTurretAngle);
 
             // Update barrel elevation angle
-            barrelAngle -= mouseInput.y * playerReference.barrelRotationSpeed * Time.deltaTime; // Inverted because moving mouse up should raise the barrel
-            barrelAngle = Mathf.Clamp(barrelAngle, playerReference.minBarrelAngle, playerReference.maxBarrelAngle);
+            barrelAngle -= mouseInput.y * playerReference.characterSettings.barrelRotationSpeed * Time.deltaTime; // Inverted because moving mouse up should raise the barrel
+            barrelAngle = Mathf.Clamp(barrelAngle, playerReference.characterSettings.minBarrelElevation, playerReference.characterSettings.maxBarrelElevation);
 
             // Apply turret rotation relative to tank body
             Quaternion turretRotation = playerReference.tankBody.rotation * Quaternion.Euler(0f, turretAngle, 0f);

@@ -3,16 +3,18 @@ using UnityEngine;
 namespace Mechadroids {
     public class EnemyEntityHandler : IEntityHandler {
         private readonly EnemySettings enemySettings;
+        private readonly Transform parentHolder;
         private EnemyReference enemyReference;
 
         public EntityState EntityState { get; set; }
 
-        public EnemyEntityHandler(EnemySettings enemySettings) {
+        public EnemyEntityHandler(EnemySettings enemySettings, Transform parentHolder) {
             this.enemySettings = enemySettings;
+            this.parentHolder = parentHolder;
         }
 
         public void Initialize() {
-            enemyReference = Object.Instantiate(enemySettings.enemy.enemyReferencePrefab); //should handle this with pooling
+            enemyReference = Object.Instantiate(enemySettings.enemy.enemyReferencePrefab, parentHolder);
             enemyReference.transform.position = enemySettings.routeSettings.routePoints[0];
 
             // Initialize the default state (Idle State)
