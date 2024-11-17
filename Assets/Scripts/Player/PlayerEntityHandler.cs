@@ -36,17 +36,19 @@ namespace Mechadroids {
 
             hitIndicatorInstance = Object.Instantiate(playerPrefabs.hitIndicatorPrefab);
             hitIndicatorInstance.gameObject.SetActive(false);
-
-            InitializeDebugMenu();
-
             EntityState = new PlayerActiveState(this, inputHandler, playerReference, hitIndicatorInstance);
             EntityState.Enter();
+
+#if GAME_DEBUG
+            InitializeDebugMenu();
+#endif
         }
 
         private void InitializeDebugMenu() {
             debugMenuHandler.AddUIElement(UIElementType.Single, "MoveSpeed", new float [] { playerReference.playerSettings.moveSpeed }, (newValue) => {
                 playerReference.playerSettings.moveSpeed = newValue[0];
             });
+
         }
 
         public void Tick() {

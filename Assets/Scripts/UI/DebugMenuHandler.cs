@@ -35,7 +35,8 @@ namespace Mechadroids.UI {
         }
 
         public void AddUIElement<T>(UIElementType type, string variableName, T [] value, Action<T []> onValueChanged) {
-            var uiElementReference = uiPrefabs.GetUIElementReference(type); // these should be pooled
+            var uiElementReference = uiPrefabs.GetUIElementReference(type);
+            // since this is a debug menu feature, we do not need to bother with pooling and saving memory since most likely this code will be removed from the release version
             UIElementReference uiElement = Object.Instantiate(uiElementReference, debugMenu.contentHolder);
             uiElement.SetName(variableName);
             switch (type) {

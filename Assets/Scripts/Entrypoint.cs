@@ -27,10 +27,10 @@ namespace Mechadroids {
             // Initialize systems
             inputHandler = new InputHandler();
             inputHandler.Initialize();
-
+#if GAME_DEBUG
             debugMenuHandler = new DebugMenuHandler(uiPrefabs, inputHandler);
             debugMenuHandler.Initialize();
-
+#endif
             playerEntityHandler = new PlayerEntityHandler(playerPrefabs, inputHandler, playerStartPosition, followCamera, debugMenuHandler);
             playerEntityHandler.Initialize();
 
