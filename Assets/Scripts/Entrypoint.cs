@@ -1,7 +1,6 @@
 using Mechadroids.UI;
 using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Mechadroids {
     public class Entrypoint : MonoBehaviour {
