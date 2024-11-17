@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace Mechadroids {
     public class PlayerActiveState : IEntityState {
-        private readonly IEntityHandler entityHandler;
         private readonly InputHandler inputHandler;
         private readonly PlayerReference playerReference;
         private readonly HitIndicator hitIndicatorInstance;
@@ -16,7 +15,6 @@ namespace Mechadroids {
             InputHandler inputHandler,
             PlayerReference playerReference,
             HitIndicator hitIndicatorInstance) {
-            this.entityHandler = entityHandler;
             this.inputHandler = inputHandler;
             this.playerReference = playerReference;
             this.hitIndicatorInstance = hitIndicatorInstance;

@@ -1,3 +1,4 @@
+using Mechadroids.UI;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -7,17 +8,23 @@ namespace Mechadroids {
         private readonly InputHandler inputHandler;
         private readonly Transform playerStartPosition;
         private readonly CinemachineCamera followCamera;
+        private readonly DebugMenuHandler debugMenuHandler;
 
         private PlayerReference playerReference;
         private HitIndicator hitIndicatorInstance;
 
         public IEntityState EntityState { get; set; }
 
-        public PlayerEntityHandler(PlayerPrefabs playerPrefabs, InputHandler inputHandler, Transform playerStartPosition, CinemachineCamera followCamera) {
+        public PlayerEntityHandler(PlayerPrefabs playerPrefabs,
+            InputHandler inputHandler,
+            Transform playerStartPosition,
+            CinemachineCamera followCamera,
+            DebugMenuHandler debugMenuHandler) {
             this.playerPrefabs = playerPrefabs;
             this.inputHandler = inputHandler;
             this.playerStartPosition = playerStartPosition;
             this.followCamera = followCamera;
+            this.debugMenuHandler = debugMenuHandler;
         }
 
         public void Initialize() {
@@ -30,8 +37,16 @@ namespace Mechadroids {
             hitIndicatorInstance = Object.Instantiate(playerPrefabs.hitIndicatorPrefab);
             hitIndicatorInstance.gameObject.SetActive(false);
 
+            InitializeDebugMenu();
+
             EntityState = new PlayerActiveState(this, inputHandler, playerReference, hitIndicatorInstance);
             EntityState.Enter();
+        }
+
+        private void InitializeDebugMenu() {
+            debugMenuHandler.AddUIElement(UIElementType.Single, "MoveSpeed", new float [] { playerReference.playerSettings.moveSpeed }, (newValue) => {
+                playerReference.playerSettings.moveSpeed = newValue[0];
+            });
         }
 
         public void Tick() {
