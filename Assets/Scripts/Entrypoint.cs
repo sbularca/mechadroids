@@ -46,6 +46,7 @@ namespace Mechadroids {
             }
             playerEntityHandler.Tick();
             aiEntitiesHandler.Tick();
+            debugMenuHandler.Tick();
         }
 
         public void FixedUpdate() {
@@ -63,6 +64,7 @@ namespace Mechadroids {
             inputHandler.Dispose();
             playerEntityHandler.Dispose();
             aiEntitiesHandler.Dispose();
+            debugMenuHandler.Dispose();
         }
     }
 }
