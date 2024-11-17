@@ -1,3 +1,4 @@
+using Mechadroids.UI;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,11 +15,14 @@ namespace Mechadroids {
         private AISettings aISettings;
         private AIEntitiesHandler aiEntitiesHandler;
         private bool initialized;
+        private DebugMenuHandler debugMenuHandler;
+        private UIPrefabs uiPrefabs;
 
         public void Initialize() {
             // Load resources
             playerPrefabs = Resources.Load<PlayerPrefabs>("PlayerPrefabs");
             aISettings = Resources.Load<AISettings>("AISettings");
+            uiPrefabs = Resources.Load<UIPrefabs>("UIPrefabs");
 
             // Initialize systems
             inputHandler = new InputHandler();
@@ -29,6 +33,9 @@ namespace Mechadroids {
 
             aiEntitiesHandler = new AIEntitiesHandler(aISettings, aiParentTransform);
             aiEntitiesHandler.Initialize();
+
+            debugMenuHandler = new DebugMenuHandler(uiPrefabs, inputHandler);
+            debugMenuHandler.Initialize();
 
             initialized = true;
         }

@@ -1,6 +1,6 @@
 namespace Mechadroids {
     public interface IEntityHandler {
-        public EntityState EntityState { get; set; }
+        public IEntityState EntityState { get; set; }
         public void Initialize();
         public void Tick();
         public void PhysicsTick();
