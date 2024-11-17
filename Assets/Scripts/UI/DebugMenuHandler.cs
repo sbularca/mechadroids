@@ -19,7 +19,7 @@ namespace Mechadroids.UI {
             debugMenu.gameObject.SetActive(false);
         }
 
-        private void Toggle() {
+        private void ToggleMenu() {
             debugMenu.gameObject.SetActive(!debugMenu.gameObject.activeSelf);
             if (debugMenu.gameObject.activeSelf) {
                 inputHandler.SetCursorState(true, CursorLockMode.None);
@@ -30,12 +30,12 @@ namespace Mechadroids.UI {
 
         public void Tick() {
             if (inputHandler.InputActions.UI.Cancel.WasPerformedThisFrame()) {
-                Toggle();
+                ToggleMenu();
             }
         }
 
-        public UIElementReference AddUIElement<T>(UIElementType type, string variableName, T [] value, Action<T []> onValueChanged) {
-            var uiElementReference = uiPrefabs.GetUIElementReference(type);
+        public void AddUIElement<T>(UIElementType type, string variableName, T [] value, Action<T []> onValueChanged) {
+            var uiElementReference = uiPrefabs.GetUIElementReference(type); // these should be pooled
             UIElementReference uiElement = Object.Instantiate(uiElementReference, debugMenu.contentHolder);
             uiElement.SetName(variableName);
             switch (type) {
@@ -62,11 +62,12 @@ namespace Mechadroids.UI {
                     onValueChanged.Invoke(newValueArray);
                 });
             }
-            return uiElement;
         }
 
         public void Dispose() {
-            Object.Destroy(debugMenu.gameObject);
+            if(debugMenu != null) {
+                Object.Destroy(debugMenu.gameObject);
+            }
         }
     }
 }
