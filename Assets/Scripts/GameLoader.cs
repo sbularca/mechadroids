@@ -3,7 +3,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Mechadroids {
-    public class Loader : MonoBehaviour {
+    /// <summary>
+    /// Project bootstrapper monobehaviour
+    /// </summary>
+    public class GameLoader : MonoBehaviour {
         public string[] scenesToLoadInOrder;
         private IEnumerator Start() {
             // first we load all scenes

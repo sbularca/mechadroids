@@ -260,17 +260,6 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
---- !u!114 &1044924022 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3318680039465691143, guid: ff3e2d98d4946eb4dbdc2db6333a02bf, type: 3}
-  m_PrefabInstance: {fileID: 1755003316868140760}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1755003316868140760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -383,7 +372,7 @@ PrefabInstance:
     - target: {fileID: 5849289870059569309, guid: 127890b2bb26b4a4090490d0a0eebb20, type: 3}
       propertyPath: followCamera
       value: 
-      objectReference: {fileID: 1044924022}
+      objectReference: {fileID: 0}
     - target: {fileID: 5849289870059569309, guid: 127890b2bb26b4a4090490d0a0eebb20, type: 3}
       propertyPath: aiParentTransform
       value: 

@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Mechadroids {
+    /// <summary>
+    /// All player settings should be contained here, not on the game objects as monobehaviours
+    /// </summary>
     [CreateAssetMenu(menuName = "Mechadroids/CharacterSettings", fileName = "CharacterSettings", order = 0)]
     public class PlayerSettings : ScriptableObject {
         [Header("Movement Parameters")]

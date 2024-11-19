@@ -1,6 +1,9 @@
 using UnityEngine;
 
 namespace Mechadroids {
+    /// <summary>
+    /// Utility class for common utility methods for different classes
+    /// </summary>
     public static class EntityHelper {
         public static float HandleSlope(Transform transform, float maxSlopeAngle, float speed) {
             if(Physics.Raycast(transform.position + Vector3.up, Vector3.down, out RaycastHit hit, 2f)) {

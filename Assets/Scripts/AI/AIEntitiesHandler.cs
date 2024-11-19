@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Mechadroids {
+    // Keeps the state for all AI activity
     public class AIEntitiesHandler {
         private readonly AISettings aiSettings;
         private readonly Transform parentHolder;
@@ -14,6 +15,7 @@ namespace Mechadroids {
         }
 
         public void Initialize() {
+            // initialize all enemies here
             foreach(EnemyGroup enemy in aiSettings.enemiesToSpawn) {
                 for(int i = 0; i < enemy.enemyCount; i++) {
                     EnemyEntityHandler enemyEntityHandler = new(enemy.enemySettings, parentHolder);
@@ -24,6 +26,7 @@ namespace Mechadroids {
         }
 
         public void Tick() {
+            // tick all the enemies
             foreach(KeyValuePair<int, EnemyEntityHandler> enemyEntityHandler in EnemyEntityHandlers) {
                 enemyEntityHandler.Value.Tick();
             }

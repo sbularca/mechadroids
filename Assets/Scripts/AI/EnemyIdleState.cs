@@ -34,8 +34,8 @@ namespace Mechadroids {
 
         private void TransitionToPatrolState() {
             Exit();
-            entityHandler.EntityState = new EnemyPatrolState(entityHandler, enemyReference);
-            entityHandler.EntityState.Enter();
+            // entityHandler.EntityState = new EnemyPatrolState(entityHandler, enemyReference);
+            // entityHandler.EntityState.Enter();
         }
     }
 

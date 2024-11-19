@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 1215594269258311897}
   - component: {fileID: 4821461318295227273}
   m_Layer: 7
-  m_Name: Enemy_Tank_type1
+  m_Name: Enemy_Tank_type1_configured
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

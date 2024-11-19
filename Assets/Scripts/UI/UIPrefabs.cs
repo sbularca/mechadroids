@@ -14,6 +14,8 @@ namespace Mechadroids.UI {
         [Tooltip("UIElementReference prefabs for each UIElementType")]
         [SerializeField] private UIElementReference [] uiElementReferencePrefabs;
 
+        // add menu ui prefabs here as well
+
         public UIElementReference GetUIElementReference(UIElementType type) {
             return uiElementReferencePrefabs[(int)type];
         }

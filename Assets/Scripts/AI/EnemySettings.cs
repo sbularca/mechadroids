@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 
 namespace Mechadroids {
+    // enemey settings that supports different kind of enemies. Route settings should be added here
     [CreateAssetMenu(menuName = "Mechadroids/EnemySettings", fileName = "EnemySettings", order = 0)]
     public class EnemySettings : ScriptableObject {
         public Enemy enemy;
