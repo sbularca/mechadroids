@@ -370,10 +370,6 @@ PrefabInstance:
       value: EntryPoint
       objectReference: {fileID: 0}
     - target: {fileID: 5849289870059569309, guid: 127890b2bb26b4a4090490d0a0eebb20, type: 3}
-      propertyPath: followCamera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5849289870059569309, guid: 127890b2bb26b4a4090490d0a0eebb20, type: 3}
       propertyPath: aiParentTransform
       value: 
       objectReference: {fileID: 380194133}

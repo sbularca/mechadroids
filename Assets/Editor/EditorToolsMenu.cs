@@ -1,17 +1,19 @@
 using UnityEditor;
 using UnityEditor.SceneManagement;
-using UnityEngine.SceneManagement;
-using Object = UnityEngine.Object;
 
 namespace Mechadroids.Editor {
     public static class EditorToolsMenu {
+        static readonly string[] scenesToLoadInOrder = new[] {
+            "Boot",
+            "Entities",
+            "Level"
+        };
+
         [MenuItem("Mechadroids/Load Scenes")]
         private static void LoadScenes() {
-            GameLoader loader = Object.FindFirstObjectByType<GameLoader>();
-            foreach(string scene in loader.scenesToLoadInOrder) {
-                if(!SceneManager.GetSceneByName(scene).isLoaded) {
-                    EditorSceneManager.OpenScene($"Assets/Scenes/{scene}.unity", OpenSceneMode.Additive);
-                }
+            string path = "Assets/Scenes";
+            foreach(string scene in scenesToLoadInOrder) {
+                EditorSceneManager.OpenScene($"{path}/{scene}.unity", OpenSceneMode.Additive);
             }
         }
     }
