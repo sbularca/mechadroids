@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: MechaDroids
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: MechaDroids
+  m_GUID: a5da209b1f684f54ab53916dc7e72bdc
+  m_SerializeEntries:
+  - m_GUID: 0d733736652ee35469f18632da72e490
+    m_Address: Assets/Scenes/Entities.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f30a7faf872f2b48b5c9fdd2acb3df1
+    m_Address: Assets/Settings/UIPrefabs.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a5fae2db6b263044aea641b17f0b537
+    m_Address: Assets/Scenes/Level.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c08bd2eb1dd8c534e906be9b0610bebe
+    m_Address: Assets/Settings/PlayerPrefabs.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: efc930e40d069b44a9b4b8f99e06bcdd
+    m_Address: Assets/Settings/AISettings.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 2d43585b8bfb0bf44a176f6f36723ed9, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 6f789fddc01d1994fb8044398e1720e8, type: 2}
+    - {fileID: 11400000, guid: e2ae8b4341ad97c40bab30c6722e5481, type: 2}

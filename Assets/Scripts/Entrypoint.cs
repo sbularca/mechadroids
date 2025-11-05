@@ -1,28 +1,34 @@
 using Mechadroids.UI;
 using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace Mechadroids {
     public class Entrypoint : MonoBehaviour {
+
+        public AssetReferenceT<UIPrefabs> uiPrefabAssetRef;
+        public AssetReferenceT<AISettings> aiSettingsAssetRef;
+        public AssetReferenceT<PlayerPrefabs> playerPrefabsAssetRef;
+
         public Transform playerStartPosition;
         public CinemachineCamera followCamera;
         public Transform aiParentTransform;
 
-        private PlayerPrefabs playerPrefabs;
         private InputHandler inputHandler;
         private PlayerEntityHandler playerEntityHandler;
-        private AISettings aISettings;
         private AIEntitiesHandler aiEntitiesHandler;
         private bool initialized;
         private DebugMenuHandler debugMenuHandler;
+        private PlayerPrefabs playerPrefabs;
+        private AISettings aiSettings;
         private UIPrefabs uiPrefabs;
 
         public void Initialize() {
             // Load resources
-            playerPrefabs = Resources.Load<PlayerPrefabs>("PlayerPrefabs");
-            aISettings = Resources.Load<AISettings>("AISettings");
-            uiPrefabs = Resources.Load<UIPrefabs>("UIPrefabs");
+            playerPrefabs = playerPrefabsAssetRef.LoadAssetAsync().WaitForCompletion();
+            aiSettings = aiSettingsAssetRef.LoadAssetAsync().WaitForCompletion();
+            uiPrefabs = uiPrefabAssetRef.LoadAssetAsync().WaitForCompletion();
 
             // Initialize systems
             inputHandler = new InputHandler();
@@ -34,7 +40,7 @@ namespace Mechadroids {
             playerEntityHandler = new PlayerEntityHandler(playerPrefabs, inputHandler, playerStartPosition, followCamera, debugMenuHandler);
             playerEntityHandler.Initialize();
 
-            aiEntitiesHandler = new AIEntitiesHandler(aISettings, aiParentTransform);
+            aiEntitiesHandler = new AIEntitiesHandler(aiSettings, aiParentTransform);
             aiEntitiesHandler.Initialize();
 
             initialized = true;

@@ -388,6 +388,18 @@ PrefabInstance:
       propertyPath: aiParentTransform
       value: 
       objectReference: {fileID: 380194133}
+    - target: {fileID: 5849289870059569309, guid: 127890b2bb26b4a4090490d0a0eebb20, type: 3}
+      propertyPath: uiPrefabAssetRef.m_AssetGUID
+      value: 0f30a7faf872f2b48b5c9fdd2acb3df1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5849289870059569309, guid: 127890b2bb26b4a4090490d0a0eebb20, type: 3}
+      propertyPath: aiSettingsAssetRef.m_AssetGUID
+      value: efc930e40d069b44a9b4b8f99e06bcdd
+      objectReference: {fileID: 0}
+    - target: {fileID: 5849289870059569309, guid: 127890b2bb26b4a4090490d0a0eebb20, type: 3}
+      propertyPath: playerPrefabsAssetRef.m_AssetGUID
+      value: c08bd2eb1dd8c534e906be9b0610bebe
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

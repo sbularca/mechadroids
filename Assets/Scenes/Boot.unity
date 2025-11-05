@@ -166,6 +166,17 @@ MonoBehaviour:
   scenesToLoadInOrder:
   - Entities
   - Level
+  sceneToLoadInOrder:
+  - m_AssetGUID: 0d733736652ee35469f18632da72e490
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 8a5fae2db6b263044aea641b17f0b537
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
