@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -11,13 +10,17 @@ namespace Mechadroids {
         public AssetReference[] sceneToLoadInOrder;
 
         private async void Start() {
-            foreach(AssetReference scene in sceneToLoadInOrder) {
-                AsyncOperationHandle<SceneInstance> opHandle = Addressables.LoadSceneAsync(scene, LoadSceneMode.Additive);
-                await opHandle.Task;
-                await opHandle.Result.ActivateAsync();
+            try {
+                foreach(AssetReference scene in sceneToLoadInOrder) {
+                    AsyncOperationHandle<SceneInstance> opHandle = Addressables.LoadSceneAsync(scene, LoadSceneMode.Additive);
+                    await opHandle.Task;
+                    await opHandle.Result.ActivateAsync();
+                }
+                Entrypoint entrypoint = FindFirstObjectByType<Entrypoint>();
+                entrypoint.Initialize();
+            } catch(Exception e) {
+                Debug.LogException(e);
             }
-            Entrypoint entrypoint = FindFirstObjectByType<Entrypoint>();
-            entrypoint.Initialize();
         }
     }
 
