@@ -18,6 +18,7 @@ namespace Mechadroids {
         }
 
         public void SetCursorState(bool visibility, CursorLockMode lockMode) {
+            return;
             Cursor.visible = visibility;
             Cursor.lockState = lockMode;
         }

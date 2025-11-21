@@ -19,10 +19,14 @@ namespace Mechadroids {
         private PlayerEntityHandler playerEntityHandler;
         private AIEntitiesHandler aiEntitiesHandler;
         private bool initialized;
+
         private DebugMenuHandler debugMenuHandler;
+        private UIPauseMenuHandler uiPauseMenuHandler;
+
         private PlayerPrefabs playerPrefabs;
         private AISettings aiSettings;
         private UIPrefabs uiPrefabs;
+
 
         public void Initialize() {
             // Load resources
@@ -33,15 +37,19 @@ namespace Mechadroids {
             // Initialize systems
             inputHandler = new InputHandler();
             inputHandler.Initialize();
-#if GAME_DEBUG
-            debugMenuHandler = new DebugMenuHandler(uiPrefabs, inputHandler);
-            debugMenuHandler.Initialize();
-#endif
+
             playerEntityHandler = new PlayerEntityHandler(playerPrefabs, inputHandler, playerStartPosition, followCamera, debugMenuHandler);
             playerEntityHandler.Initialize();
 
             aiEntitiesHandler = new AIEntitiesHandler(aiSettings, aiParentTransform);
             aiEntitiesHandler.Initialize();
+
+            uiPauseMenuHandler = new UIPauseMenuHandler(uiPrefabs, inputHandler);
+
+#if GAME_DEBUG
+            debugMenuHandler = new DebugMenuHandler(uiPrefabs, inputHandler);
+            debugMenuHandler.Initialize();
+#endif
 
             initialized = true;
         }

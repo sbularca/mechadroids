@@ -31,7 +31,7 @@ namespace Mechadroids.UI {
         }
 
         public void Tick() {
-            if (inputHandler.InputActions.UI.Cancel.WasPerformedThisFrame()) {
+            if (inputHandler.InputActions.UI.DebugMenu.WasPerformedThisFrame()) {
                 ToggleMenu();
             }
         }

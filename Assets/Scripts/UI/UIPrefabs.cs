@@ -11,6 +11,7 @@ namespace Mechadroids.UI {
     [CreateAssetMenu(menuName = "Mechadroids/UIPrefabs", fileName = "UIPrefabs", order = 0)]
     public class UIPrefabs : ScriptableObject {
         public DebugMenuReference debugMenuReferencePrefab;
+        public PauseMenuReference pauseMenuReferencePrefab;
 
         [Tooltip("UIElementReference prefabs for each UIElementType")]
         [SerializeField] private UIElementReference [] uiElementReferencePrefabs;

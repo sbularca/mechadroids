@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: UIPrefabs
   m_EditorClassIdentifier: 
   debugMenuReferencePrefab: {fileID: 4522879463847639998, guid: 67dffd530d3133240949ef0807a74ba1, type: 3}
+  pauseMenuReferencePrefab: {fileID: 7791253882978752340, guid: beb506197a909eb4f8cbfa0d28129431, type: 3}
   uiElementReferencePrefabs:
   - {fileID: 3793566446807851981, guid: f8d7709d4b1e6624d976d13c5856c680, type: 3}
   - {fileID: 8098373170459312683, guid: 988b790a892a8df4292661748179bc3e, type: 3}
